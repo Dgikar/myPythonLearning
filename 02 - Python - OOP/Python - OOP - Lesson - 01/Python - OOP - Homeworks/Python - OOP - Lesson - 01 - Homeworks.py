@@ -73,7 +73,8 @@ class Order:
                          for index, goods in enumerate(self.__product_selected_by_buyer))
 
     def total_summa_to_paid(self):
-        return f"{sum(goods.product_price * self.__quantity_of_goods[index] for index, goods in enumerate(self.__product_selected_by_buyer))}"
+        return sum(goods.product_price * self.__quantity_of_goods[index] for index, goods in
+                   enumerate(self.__product_selected_by_buyer))
 
     def __str__(self):
         return f"Візьміть Ваш чек:\n" \
