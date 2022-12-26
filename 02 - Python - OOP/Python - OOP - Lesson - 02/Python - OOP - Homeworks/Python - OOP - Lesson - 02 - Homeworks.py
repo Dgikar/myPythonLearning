@@ -227,3 +227,4 @@ candidates = person_registration()
 course_groups = open_groups()
 students_on_course = add_candidate_to_grope(candidates, course_groups)
 actions_with_students(students_on_course)
+
