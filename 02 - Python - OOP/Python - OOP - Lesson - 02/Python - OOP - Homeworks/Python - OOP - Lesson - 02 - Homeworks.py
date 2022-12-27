@@ -106,7 +106,7 @@ def person_registration():
     student_3 = Student("Марініна", "Марія", "Петрівна", "жіноча", "333-3333333", 36)
     student_4 = Student("Іванова", "Іванна", "Іванівна", "жіноча", "444-4444444", 27)
     student_5 = Student("Петров", "Петро", "Петрович", "чоловіча", "555-5555555", 37)
-    student_6 = Student("Мусієнко", "Василь", "Андрійович", "чоловіча", "555-5555555", 20)
+    student_6 = Student("Мусієнко", "Василь", "Андрійович", "чоловіча", "777-7777777", 20)
 
     for student_number in range(1, how_many_student_register + 1):
         student_list.append(locals().get(f"student_{student_number}"))
@@ -172,7 +172,7 @@ def actions_with_students(on_course):
         print("Що бажаєте зробити? ")
         choose_an_action = int(
             input("     1) Подивитись список студентів\n"
-                  "     2) Видалити студента. Натисніть\n"
+                  "     2) Видалити студента\n"
                   "     3) Знайти студента за прізвищем\n"
                   "     4) Вихід\n"
                   "Введіть номер обраного дії: "))
