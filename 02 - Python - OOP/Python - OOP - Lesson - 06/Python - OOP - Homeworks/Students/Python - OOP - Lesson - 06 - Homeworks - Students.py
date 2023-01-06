@@ -8,8 +8,13 @@ Useful Links:
 1. Доповніть клас Група (завдання Лекції 2) можливістю підтримки ітераційного протоколу.
 """
 
-# -------------------------------------------
+import persons
+import group_module
+import actions
 
-"""
-2. Модифікуєте клас Замовлення (Лекція 1), додавши реалізацію протоколу послідовностей та ітераційного протоколу.
-"""
+if __name__ == "__main__":
+    print("-" * 42)
+    candidates = persons.person_registration()
+    course_groups = group_module.open_groups()
+    students_on_course = group_module.add_candidate_to_grope(candidates, course_groups)
+    actions.actions_with_students(students_on_course)
