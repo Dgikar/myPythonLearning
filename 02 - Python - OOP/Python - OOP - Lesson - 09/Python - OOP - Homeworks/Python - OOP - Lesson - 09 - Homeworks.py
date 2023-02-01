@@ -104,15 +104,16 @@ print(f"Маємо список: {some_list}\n\t"
 def save_to_file_decorator(func):
     """ Decorator """
 
-    def wrapper(class_name):
+    def wrapper(*args, **kwargs):
         """ Wrapper """
 
-        class_name_str = class_name.__class__.__name__
+        class_name_str = f"{func.__qualname__.split('.')[0]}.txt"
+        res = func(*args, **kwargs)
 
-        with open(f"{class_name_str}.txt", encoding='utf-8', mode='w') as f:
-            f.write(func(class_name))
+        with open(class_name_str, encoding='utf-8', mode='w') as f:
+            f.write(res)
 
-        return func(class_name)
+        return res
 
     return wrapper
 
@@ -131,8 +132,51 @@ class Person:
         return f"Збережено: {self.surname} {self.name} {self.patronymic}. Дата народження: {self.birthdate}"
 
 
-person1 = Person("Петров", "Петро", "Петрович", "24.08.1975")
+person = Person("Петров", "Петро", "Петрович", "24.08.1975")
 
 print()
 print("*" * 77)
-print(person1)
+print(person)
+# -------------------------------------------
+
+"""
+4. Створіть декоратор із параметрами для проведення хронометражу роботи тієї чи іншої функції.
+    Параметрами повинні виступати те, скільки разів потрібно запустити функцію, що декорується, і в який файл зберегти
+    результати хронометражу. Мета - провести хронометраж функції, що декорується.
+"""
+import time
+
+
+def set_time_and_write_to_file(number=1, file_name='script_work_time.txt'):
+    i = 0
+    start = time.time()
+
+    while i < number:
+        def func(func):
+            def run_function(*args, **kwargs):
+                res = func(*args, **kwargs)
+                return res
+
+            return run_function
+
+        i += 1
+
+        with open(file_name, encoding='utf-8', mode='w') as file:
+            work_time = time.time() - start
+            file.write(f"На {i} ітерацій, витрачено {work_time} секунд")
+
+    return func
+
+
+@set_time_and_write_to_file(50)
+def fibonacci(k):
+    if k == 0:
+        return 0
+    return 1 if k in [1, 2] else fibonacci(k - 1) + fibonacci(k - 2)
+
+
+find_fibo_number = 20
+
+print()
+print("*" * 77)
+print(f"{find_fibo_number}-те число рядка Фібоначчі - {fibonacci(find_fibo_number)}")
