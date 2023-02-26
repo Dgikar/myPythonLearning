@@ -1,0 +1,44 @@
+{% extends 'account.html' %}
+
+{% block content %}
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+
+                <h2>Інтерфейс управління</h2>
+
+                <ol>
+                    <li><a href="/">Головна</a></li>
+                    <li>Менеджер</li>
+                </ol>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="reserves">
+
+        <div class="container">
+
+            <div class="col-md-10 col-md-offset-1">
+
+                <div class="section-title">
+                    <div class="d-grid gap-2">
+                        <a href="{% url 'manager:reservations_list' %}" class="btn btn-outline-success" role="button" data-bs-toggle="button">Бронювання</a>
+                        <a href="{% url 'manager:contact_list' %}" class="btn btn-outline-info" role="button" data-bs-toggle="button">Контактні дані</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+{% endblock %}
