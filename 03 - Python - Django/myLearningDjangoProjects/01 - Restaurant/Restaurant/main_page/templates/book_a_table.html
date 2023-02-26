@@ -1,0 +1,58 @@
+<!-- ======= Book A Table Section ======= -->
+<section id="book-a-table" class="book-a-table">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Замовити <span>столик</span></h2>
+            <p>Замовлення столика у ресторані дозволяє забезпечити себе комфортним та зручним місцем для вечері чи обіду та забезпечує гарантоване місце у випадку, якщо ресторан заповнений до кінця</p>
+        </div>
+
+        <form action="" method="post" role="form" class="php-email-form">
+            {% csrf_token %}
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6 form-group">
+                    {{ reservation_form.name }}
+                    <div class="validate"></div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+                    {{ reservation_form.email }}
+                    <div class="validate"></div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+                    {{ reservation_form.phone }}
+                    <div class="validate"></div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 form-group mt-3">
+                    {{ reservation_form.date_reservation }}
+                    <div class="validate"></div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 form-group mt-3">
+                    {{ reservation_form.time_reservation }}
+                    <div class="validate"></div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 form-group mt-3">
+                    {{ reservation_form.persons }}
+                    <div class="validate"></div>
+                </div>
+
+            </div>
+            <div class="form-group mt-3">
+                {{ reservation_form.message }}
+                <div class="validate"></div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit">Send Message</button>
+            </div>
+
+        </form>
+
+    </div>
+</section>
+<!-- End Book A Table Section -->
