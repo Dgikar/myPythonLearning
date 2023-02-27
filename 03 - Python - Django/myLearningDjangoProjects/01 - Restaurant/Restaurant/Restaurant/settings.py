@@ -19,7 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Див. https://docs.djangoproject.com/en/4.1/howto/deployment/checklist
 
 # ПОПЕРЕДЖЕННЯ БЕЗПЕКИ: зберігайте секретний ключ, який використовується у виробництві, в таємниці!
-SECRET_KEY = 'django-insecure-o$3#4m#7em6yq7zbs&g%0ka95ke_y&^(7*b_g#=6!orgfdb-md'
+SECRET_KEY = 'SECRET_KEY'
 
 # ПОПЕРЕДЖЕННЯ З БЕЗПЕКИ: не запускайте з увімкненим налагодженням у продакшені!
 DEBUG = True
